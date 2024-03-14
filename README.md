@@ -19,27 +19,9 @@ git clone https://github.com/AngeLouCN/Min_Max_Similarity
 
 - [Kvasir-instrument](https://datasets.simula.no/kvasir-instrument/)
 
-**File structure**
-```
-|-- data
-|   |-- kvasir
-|   |   |-- train
-|   |   |   |--image
-|   |   |   |--mask
-|   |   |-- test
-|   |   |   |--image
-|   |   |   |--mask
-|   |-- EndoVis17
-|   |   |-- train
-|   |   |   |--image
-|   |   |   |--mask
-|   |   |-- test
-|   |   |   |--image
-|   |   |   |--mask
-......
-```
-
-**You can also test on some other public medical image segmentation dataset with above file architecture**
+Download kvasir-instrument.zip.
+Move it to the Mutual_Exemplar folder.
+Run python split_dataset.py in that folder.
 
 ## Usage
 
