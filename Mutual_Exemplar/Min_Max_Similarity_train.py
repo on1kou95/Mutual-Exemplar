@@ -25,8 +25,8 @@ import numpy as np
 os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--epoch', type=int, default=100, help='epoch number')
-parser.add_argument('--lr', type=float, default=1e-4, help='learning rate')
+parser.add_argument('--epoch', type=int, default=1000, help='epoch number')
+parser.add_argument('--lr', type=float, default=1e-3, help='learning rate')
 parser.add_argument('--batchsize', type=int, default=1, help='training batch size')
 parser.add_argument('--trainsize', type=int, default=(256, 256), help='training dataset size')
 parser.add_argument('--dataset', type=str, default='kvasir', help='dataset name')
@@ -89,10 +89,10 @@ class Network(object):
 
         optimizer = torch.optim.Adam(params, lr=opt.lr)
 
-        image_root = './data/' + opt.dataset + '/train/image/'
-        gt_root = './data/' + opt.dataset + '/train/mask/'
-        val_img_root = './data/' + opt.dataset + '/test/image/'
-        val_gt_root = './data/' + opt.dataset + '/test/mask/'
+        image_root = './data/' + opt.dataset + '/train/images/'
+        gt_root = './data/' + opt.dataset + '/train/masks/'
+        val_img_root = './data/' + opt.dataset + '/test/images/'
+        val_gt_root = './data/' + opt.dataset + '/test/masks/'
 
         self.logger.info("Split Percentage : {} Labeled Data Ratio : {}".format(opt.split, opt.ratio))
         train_loader_1, train_loader_2, unlabeled_train_loader, val_loader = image_loader(image_root, gt_root,

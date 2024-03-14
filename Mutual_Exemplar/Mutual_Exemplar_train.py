@@ -149,10 +149,10 @@ class Network(object):
 
         optimizer = torch.optim.Adam(params, lr=opt.lr)
 
-        image_root = './data/' + opt.dataset + '/train/image/'
-        gt_root = './data/' + opt.dataset + '/train/mask/'
-        val_img_root = './data/' + opt.dataset + '/test/image/'
-        val_gt_root = './data/' + opt.dataset + '/test/mask/'
+        image_root = './data/' + opt.dataset + '/train/images/'
+        gt_root = './data/' + opt.dataset + '/train/masks/'
+        val_img_root = './data/' + opt.dataset + '/test/images/'
+        val_gt_root = './data/' + opt.dataset + '/test/masks/'
 
         self.logger.info("Split Percentage : {} Labeled Data Ratio : {}".format(opt.split, opt.ratio))
         train_loader_1, train_loader_2, unlabeled_train_loader, unlabeled_train_loader_2, val_loader = image_loader(image_root, gt_root,
