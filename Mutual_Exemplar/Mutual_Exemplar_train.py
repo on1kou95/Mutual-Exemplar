@@ -179,19 +179,16 @@ class Network(object):
             #     self.set_trainable(self.model_1, ["resnet.conv1", "resnet.bn1", "resnet.relu", "resnet.maxpool",
             # "resnet.layer1", "resnet.layer2", "resnet.layer3", "resnet.layer4",
             # "resnet.avgpool", "resnet.fc"], True)
-            #     # 重置优化器以包含新的可训练参数
             #     self.optimizer_1 = torch.optim.Adam(filter(lambda p: p.requires_grad, self.model_1.parameters()), lr=1e-1)
             #     print(f"Model 1's layer trainable status at epoch {epoch}:")
             #     self.print_trainable_status(self.model_1)
             # if epoch == 15:
             #     self.set_trainable(self.model_2, ["resnet.layer3"], True)
-            #     # 重置优化器以包含新的可训练参数
             #     self.optimizer_2 = torch.optim.Adam(filter(lambda p: p.requires_grad, self.model_2.parameters()), lr=1e-1)
             #     print(f"Model 2's layer trainable status at epoch {epoch}:")
             #     self.print_trainable_status(self.model_2)
             # if epoch == 20:
             #     self.set_trainable(self.model_2, ["resnet.layer2"], True)
-            #     # 重置优化器以包含新的可训练参数
             #     self.optimizer_2 = torch.optim.Adam(filter(lambda p: p.requires_grad, self.model_2.parameters()), lr=1e-1)
             #     print(f"Model 2's layer trainable status at epoch {epoch}:")
             #     self.print_trainable_status(self.model_2)
@@ -281,18 +278,18 @@ class Network(object):
                 # Loss_diff_2 = loss_diff(u_prediction_1, u_prediction_3, opt.batchsize)
                 # Loss_diff_3 = loss_diff(u_prediction_2, u_prediction_3, opt.batchsize)
                 if best_dice_index is not None:
-                    # 根据DICE最高的模型，计算Loss_diff
-                    if best_dice_index == 0:  # 第一个模型DICE最高
+                    # caculate Loss_diff based on DICE
+                    if best_dice_index == 0:  # Model1
                         Loss_diff_1 = loss_diff(u_prediction_2, u_prediction_1, opt.batchsize)
                         Loss_diff_2 = loss_diff(u_prediction_3, u_prediction_1, opt.batchsize)
-                    elif best_dice_index == 1:  # 第二个模型DICE最高
+                    elif best_dice_index == 1:  # Model2
                         Loss_diff_1 = loss_diff(u_prediction_1, u_prediction_2, opt.batchsize)
                         Loss_diff_2 = loss_diff(u_prediction_3, u_prediction_2, opt.batchsize)
-                    else:  # 第三个模型DICE最高
+                    else:  # Model3
                         Loss_diff_1 = loss_diff(u_prediction_1, u_prediction_3, opt.batchsize)
                         Loss_diff_2 = loss_diff(u_prediction_2, u_prediction_3, opt.batchsize)
                 else:
-                    # 第一个epoch，比较所有模型
+                    # First epoch
                     Loss_diff_1 = loss_diff(u_prediction_1, u_prediction_2, opt.batchsize)
                     Loss_diff_2 = loss_diff(u_prediction_1, u_prediction_3, opt.batchsize)
                     Loss_diff_3 = loss_diff(u_prediction_2, u_prediction_3, opt.batchsize)
@@ -328,9 +325,9 @@ class Network(object):
                 seg_loss.backward(retain_graph=True)
                 running_loss = running_loss + seg_loss.item()
                 # optimizer.step()
-                self.optimizer_1.step()  # 更新model_1的参数
-                self.optimizer_2.step()  # 更新model_2的参数
-                self.optimizer_3.step()  # 更新model_3的参数
+                self.optimizer_1.step()  # update model_1
+                self.optimizer_2.step()  # update model_2
+                self.optimizer_3.step()  # update model_3
 
                 # adjust_lr(optimizer, opt.lr, epoch, opt.epoch)
                 adjust_lr(self.optimizer_1, self.optimizer_2, self.optimizer_3, opt.lr, epoch, opt.epoch)
