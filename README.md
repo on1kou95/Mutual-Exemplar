@@ -26,4 +26,4 @@ git clone https://github.com/AngeLouCN/Min_Max_Similarity
 ## Usage
 
 - **Training:**
-You can change the hyper-parameters like labeled ratio, leanring rate, and e.g. in ```train_mms.py```, and directly run the code.
+You can change the hyper-parameters like labeled ratio, leanring rate, and e.g. in ```Min_Max_Similarity_train.py``` and ```Mutual_Exemplar_train.py```, and directly run the code.
