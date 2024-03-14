@@ -19,9 +19,9 @@ git clone https://github.com/AngeLouCN/Min_Max_Similarity
 
 - [Kvasir-instrument](https://datasets.simula.no/kvasir-instrument/)
 
-Download kvasir-instrument.zip.
-Move it to the Mutual_Exemplar folder.
-Run python split_dataset.py in that folder.
+- Download kvasir-instrument.zip.
+- Move it to the Mutual_Exemplar folder.
+- Run python split_dataset.py in that folder.
 
 ## Usage
 
