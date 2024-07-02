@@ -1,5 +1,5 @@
 # Mutual-Exemplar
-This is the official implementation in PyTorch for Mutual Exemplar: Contrastive Co-training for Surgical Tools Segmentation
+This is the official implementation in PyTorch for Mutual Exemplar: Learning Representations by Maximizing Mutual Information Across Views for Medical Image Segmentation
 
 ## Environment
 
