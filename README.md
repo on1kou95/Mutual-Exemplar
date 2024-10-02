@@ -19,11 +19,10 @@ git clone https://github.com/AngeLouCN/Min_Max_Similarity
 
 - [Kvasir-instrument](https://datasets.simula.no/kvasir-instrument/)
 
-- Download kvasir-instrument.zip.
-- Move it to the Mutual_Exemplar folder.
-- Run python split_dataset.py in that folder.
-
 ## Usage
 
 - **Training:**
-You can directly run the codes ```Mutual_Exemplar_train.py``` and ```Min_Max_Similarity_train.py``` for the proposed method and the best competing method, respectively.
+
+1) Use different preprocessing methods for each network.  
+2) Update the pseudo-labels after both networks have trained on the entire dataset once.  
+3) Slightly modify the loss function in the source code based on the pseudo-labels.
